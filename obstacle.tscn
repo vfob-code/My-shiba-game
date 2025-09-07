@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://csji8csiihyp8"]
+
+[ext_resource type="Texture2D" uid="uid://dlaq3f3hiu07f" path="res://images/godotwaka.png" id="1_sl1jc"]
+
+[sub_resource type="GDScript" id="GDScript_sl1jc"]
+script/source = "extends StaticBody2D
+
+func _ready():
+	remove_from_group(\"obstacle\")   # Just to be extra safe
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aubd6"]
+size = Vector2(489, 41.5)
+
+[node name="Obstacle" type="StaticBody2D"]
+scale = Vector2(0.788135, 0.521344)
+script = SubResource("GDScript_sl1jc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.337994, 0.183112)
+scale = Vector2(0.254882, 0.0254339)
+texture = ExtResource("1_sl1jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.162006, -0.0668882)
+shape = SubResource("RectangleShape2D_aubd6")
